@@ -5,10 +5,23 @@ import 'package:newsfeed_multiple_imageview/src/image_viewer.dart';
 import 'package:newsfeed_multiple_imageview/src/multiple_image_view.dart';
 
 class NewsfeedMultipleImageView extends StatelessWidget {
+  ///Provide the List [imageUrls] for the images to display.
   final List<String> imageUrls;
+
+  /// Left side margin for [NewsfeedMultipleImageView]
+  /// default value is 0
   final double marginLeft;
+
+  /// Top side margin for [NewsfeedMultipleImageView]
+  /// default value is 0
   final double marginTop;
+
+  ///[marginRight] Right side margin for [NewsfeedMultipleImageView]
+  /// default value is 0
   final double marginRight;
+
+  /// Bottom side margin for [NewsfeedMultipleImageView]
+  /// default value is 0
   final double marginBottom;
 
   const NewsfeedMultipleImageView({

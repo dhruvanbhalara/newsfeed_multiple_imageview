@@ -1,9 +1,7 @@
 library newsfeed_multiple_imageview;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'package:newsfeed_multiple_imageview/src/smart_image.dart';
-
+import 'package:newsfeed_multiple_imageview/src/image_viewer.dart';
 import 'package:newsfeed_multiple_imageview/src/multiple_image_view.dart';
 
 class NewsfeedMultipleImageView extends StatelessWidget {
@@ -25,9 +23,9 @@ class NewsfeedMultipleImageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (context, costraints) => Container(
-        width: costraints.maxWidth,
-        height: costraints.maxWidth,
+      builder: (context, constraints) => Container(
+        width: constraints.maxWidth,
+        height: constraints.maxWidth,
         margin: EdgeInsets.fromLTRB(
           marginLeft,
           marginTop,
@@ -45,65 +43,5 @@ class NewsfeedMultipleImageView extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class ImageViewer extends StatelessWidget {
-  final List<String> imageUrls;
-  const ImageViewer({
-    super.key,
-    required this.imageUrls,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-      bottom: false,
-      child: Container(
-        // width: MediaQuery.of(context).size.width,
-        // height: MediaQuery.of(context).size.height,
-        color: Colors.black,
-        child: SafeArea(
-          top: false,
-          left: false,
-          right: false,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              IconButton(
-                onPressed: () => Navigator.pop(context),
-                icon: const Icon(
-                  Icons.close,
-                  color: Colors.white,
-                  size: 30,
-                ),
-              ),
-              Expanded(
-                child: ImageSlideshow(
-                  initialPage: 0,
-                  indicatorColor: Colors.red,
-                  indicatorBackgroundColor: Colors.grey,
-                  isLoop: imageUrls.length > 1,
-                  children: imageUrls
-                      .map(
-                        (e) => ClipRect(
-                          child: SmartImage(
-                            e,
-                            fit: BoxFit.contain,
-                            isPost: true,
-                          ),
-                        ),
-                      )
-                      .toList(),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ));
   }
 }

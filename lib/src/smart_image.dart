@@ -19,12 +19,12 @@ class SmartImage extends StatelessWidget {
     this.radius,
   });
 
-  bool networkImage() => src.startsWith('https');
+  bool get networkImage => src.startsWith('https');
   //bool base64() => src.contains('[]');
 
   @override
   Widget build(BuildContext context) {
-    return networkImage()
+    return networkImage
         ? FadeInImage.memoryNetwork(
             placeholder: kTransparentImage,
             image: src,

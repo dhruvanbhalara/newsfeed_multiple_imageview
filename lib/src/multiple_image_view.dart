@@ -291,7 +291,6 @@ class MultipleImageView extends StatelessWidget {
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 22,
-                          fontFamily: "Nulito",
                           fontWeight: FontWeight.w700,
                         ),
                       ),

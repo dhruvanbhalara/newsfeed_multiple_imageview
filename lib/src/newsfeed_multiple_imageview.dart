@@ -7,7 +7,6 @@ import 'package:newsfeed_multiple_imageview/src/smart_image.dart';
 import 'package:newsfeed_multiple_imageview/src/multiple_image_view.dart';
 
 class NewsfeedMultipleImageView extends StatelessWidget {
-
   final List<String> imageUrls;
   final double marginLeft;
   final double marginTop;
@@ -15,13 +14,13 @@ class NewsfeedMultipleImageView extends StatelessWidget {
   final double marginBottom;
 
   const NewsfeedMultipleImageView({
-    Key? key,
+    super.key,
     this.marginLeft = 0,
     this.marginTop = 0,
     this.marginRight = 0,
     this.marginBottom = 0,
     required this.imageUrls,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -51,13 +50,15 @@ class NewsfeedMultipleImageView extends StatelessWidget {
 
 class ImageViewer extends StatelessWidget {
   final List<String> imageUrls;
-  const ImageViewer({Key? key,
+  const ImageViewer({
+    super.key,
     required this.imageUrls,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(
+    return Scaffold(
+        body: SafeArea(
       bottom: false,
       child: Container(
         // width: MediaQuery.of(context).size.width,
@@ -89,13 +90,13 @@ class ImageViewer extends StatelessWidget {
                   children: imageUrls
                       .map(
                         (e) => ClipRect(
-                      child: SmartImage(
-                        e,
-                        fit: BoxFit.contain,
-                        isPost: true,
-                      ),
-                    ),
-                  )
+                          child: SmartImage(
+                            e,
+                            fit: BoxFit.contain,
+                            isPost: true,
+                          ),
+                        ),
+                      )
                       .toList(),
                 ),
               ),
@@ -106,5 +107,3 @@ class ImageViewer extends StatelessWidget {
     ));
   }
 }
-
-

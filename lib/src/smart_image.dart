@@ -11,9 +11,13 @@ class SmartImage extends StatelessWidget {
   final bool isPost;
   final double? radius;
 
-  const SmartImage(this.src,
-      {Key? key, this.fit, this.isPost = false, this.radius})
-      : super(key: key);
+  const SmartImage(
+    this.src, {
+    super.key,
+    this.fit,
+    this.isPost = false,
+    this.radius,
+  });
 
   bool networkImage() => src.startsWith('https');
   //bool base64() => src.contains('[]');
